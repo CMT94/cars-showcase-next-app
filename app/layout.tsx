@@ -1,9 +1,11 @@
 import { Footer, Navbar } from "@/components";
+
 import type { Metadata } from "next";
+
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Cars Hub",
+  title: "Car Hub",
   description: "Discover the best cars in the world.",
 };
 
