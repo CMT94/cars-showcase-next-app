@@ -5,7 +5,7 @@ import React from "react";
 import { SearchManufacturer } from ".";
 
 const SearchBar = () => {
-  const [manufacturer, setManufacturer] = React.useState("");
+  const [manufacturer, setManufacturer] = React.useState<string>("");
 
   const handleSearch = () => {};
   return (
