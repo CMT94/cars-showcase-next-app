@@ -6,6 +6,7 @@ import { fetchCars } from "@/utils";
 
 const Home = async () => {
   const allCars = await fetchCars();
+
   const isDataEmpty =
     !Array.isArray(allCars) || allCars.length === 0 || !allCars;
 
