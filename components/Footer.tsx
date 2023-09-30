@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { footerLinks } from "@/constants";
+import { FOOTER_LINKS } from "@/constants";
 
 const Footer = () => {
   return (
@@ -24,7 +24,7 @@ const Footer = () => {
         </div>
 
         <div className="footer__links">
-          {footerLinks.map((link, linkIndex) => (
+          {FOOTER_LINKS.map((link, linkIndex) => (
             <div key={linkIndex} className="footer__link">
               <h3 className="font-bold">{link.title}</h3>
               {link.links.map((item, itemIndex) => (
