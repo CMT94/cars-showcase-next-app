@@ -1,10 +1,10 @@
 "use client";
-
 import React from "react";
 import Image from "next/image";
 
 import { CarProps } from "@/types";
 import { calculateCarRent } from "@/utils";
+
 import { CarDetails, CustomButton } from ".";
 
 interface CarCardProps {
@@ -18,6 +18,7 @@ const CarCard = ({ car }: CarCardProps) => {
 
   const [isModalOpen, setIsModalOpen] = React.useState<boolean>(false);
   const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   return (
     <div className="car-card group">
@@ -77,7 +78,7 @@ const CarCard = ({ car }: CarCardProps) => {
         </div>
       </div>
 
-      <CarDetails />
+      <CarDetails isOpen={isModalOpen} closeModal={closeModal} car={car} />
     </div>
   );
 };
