@@ -1,11 +1,14 @@
 "use client";
 
 import React from "react";
+import { useRouter } from "next/navigation";
 
 import { SearchButton, SearchManufacturer } from ".";
 import SearchModel from "./SearchModel";
 
 const SearchBar = () => {
+  const router = useRouter();
+
   const [manufacturer, setManufacturer] = React.useState<string>("");
   const [model, setModel] = React.useState<string>("");
   const [error, setError] = React.useState<string | undefined>(undefined);
@@ -15,12 +18,35 @@ const SearchBar = () => {
 
     let err;
     if (manufacturer === "" && model === "") {
-      err = "Please, fill in the search bar";
-      setError(err);
+      alert("Please, fill in the search bar.");
+      // TODO: handle errror with popup modal (Dialog, TransitionChild, onEnter, onLeave, etc...)
+      // err = "Please, fill in the search bar";
+      // setError(err);
     }
+
+    updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
   };
 
-  const updateSearchParams = () => {};
+  const updateSearchParams = (model: string, manufacturer: string) => {
+    const searchParams = new URLSearchParams(window.location.search);
+    if (model) {
+      searchParams.set("model", model);
+    } else {
+      searchParams.delete("model");
+    }
+
+    if (manufacturer) {
+      searchParams.set("manufacturer", manufacturer);
+    } else {
+      searchParams.delete("manufacturer");
+    }
+
+    const newPathName = `${
+      window.location.pathname
+    }?${searchParams.toString()}`;
+
+    router.push(newPathName);
+  };
   return (
     <React.Fragment>
       <form className="searchbar" onSubmit={handleSearch}>
