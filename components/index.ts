@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import SearchBar from "./SearchBar";
 import SearchManufacturer from "./SearchManufacturer";
+import SearchButton from "./SearchButton";
 import CarCard from "./CarCard";
 import CarDetails from "./CarDetails";
 export {
@@ -10,6 +11,7 @@ export {
   Navbar,
   Footer,
   SearchBar,
+  SearchButton,
   SearchManufacturer,
   CarCard,
   CarDetails,
