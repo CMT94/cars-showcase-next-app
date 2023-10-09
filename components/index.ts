@@ -4,8 +4,10 @@ import Footer from "./Footer";
 import SearchBar from "./SearchBar";
 import SearchManufacturer from "./SearchManufacturer";
 import SearchButton from "./SearchButton";
+import CarCardsList from "./CarCardsList";
 import CarCard from "./CarCard";
 import CarDetails from "./CarDetails";
+import ShowMore from "./ShowMore";
 export {
   Hero,
   Navbar,
@@ -13,8 +15,10 @@ export {
   SearchBar,
   SearchButton,
   SearchManufacturer,
+  CarCardsList,
   CarCard,
   CarDetails,
+  ShowMore,
 };
 
 import CustomButton from "./shared/CustomButton";
