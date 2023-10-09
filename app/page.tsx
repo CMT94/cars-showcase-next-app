@@ -3,8 +3,10 @@ import React from "react";
 import { CarCard, CustomFilter, Hero, SearchBar } from "@/components";
 
 import { fetchCars } from "@/utils";
+import { FUELS, YEARS_OF_PRODUCTION } from "@/constants";
+import { HomeProps } from "@/types";
 
-const Home = async ({ searchParams }) => {
+const Home = async ({ searchParams }: HomeProps) => {
   const allCars = await fetchCars({
     manufacturer: searchParams.manufacturer || "",
     year: searchParams.year || 2022,
@@ -30,8 +32,8 @@ const Home = async ({ searchParams }) => {
           <SearchBar />
 
           <div className="home__filter-container">
-            <CustomFilter title="fuel" />
-            <CustomFilter title="year" />
+            <CustomFilter title="fuel" options={FUELS} />
+            <CustomFilter title="year" options={YEARS_OF_PRODUCTION} />
           </div>
         </div>
 
