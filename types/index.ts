@@ -40,6 +40,10 @@ export interface CarProps {
   year: number;
 }
 
+export interface CarsListProps {
+  carsList: CarProps[];
+}
+
 export interface FilterProps {
   manufacturer: string;
   year: number;
