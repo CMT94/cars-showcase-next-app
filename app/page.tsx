@@ -2,17 +2,17 @@ import React from "react";
 
 import { fetchCars } from "@/utils";
 import { HomeProps } from "@/types";
-import { CustomFilter, Hero, SearchBar } from "@/components";
 import { FUELS, YEARS_OF_PRODUCTION } from "@/constants";
 
-import CarCardsList from "@/components/CarCardsList";
+import { CustomFilter, Hero, SearchBar } from "@/components";
+import { CarCardsList, ShowMore } from "@/components";
 
 const Home = async ({ searchParams }: HomeProps) => {
   const allCars = await fetchCars({
     manufacturer: searchParams.manufacturer || "",
     year: searchParams.year || 2022,
     fuel: searchParams.fuel || "",
-    limit: searchParams.limit || 12,
+    limit: searchParams.limit || 10,
     model: searchParams.model || "",
   });
 
@@ -39,7 +39,14 @@ const Home = async ({ searchParams }: HomeProps) => {
         </div>
 
         {!isDataEmpty ? (
-          <CarCardsList carsList={allCars} />
+          <React.Fragment>
+            <CarCardsList carsList={allCars} />
+
+            <ShowMore
+              pageNumber={(searchParams.limit || 10) / 10}
+              isNext={(searchParams.limit || 10) > allCars.length}
+            />
+          </React.Fragment>
         ) : (
           <div className="home__error-container">
             <h2 className="text-black text-xl font-bold">Oops, no results.</h2>
